@@ -1,0 +1,18 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+
+    <div ng-if="position == 'signup' ">
+      <div>
+        <span ng-include="'templates/tab-signup.html'"></span>
+      </div>
+    </div>
+
+    <div ng-if="position == 'login'">
+      <div>
+        <span ng-include="'templates/tab-login.html'"></span>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
