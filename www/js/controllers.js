@@ -1,13 +1,52 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic.cloud'])
 
-.controller('DashCtrl', function($scope) {
-  $scope.test = 'test'
+.controller('DashCtrl', function($scope, $ionicAuth, $ionicUser) {
 
-  $scope.position = 'login'
+  $scope.user = {
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null
+  };
 
-  $scope.signupPage = function() {
-    $scope.position = 'signup'
+  var details = {};
+
+
+  $scope.signupUser = function(firstName, lastName, email, password) {
+
+
+
+    details.name = firstName + " " + lastName
+    details.email = email
+    details.password = password
+
+    console.log('log out details')
+    console.log(details)
+
+
+    // check variables and sign up user
+    if (details.name && details.email && details.password) {
+
+        $ionicAuth.signup(details).then(function() {
+          // `$ionicUser` is now registered
+          console.log('user is signup to ionic')
+        }, function(err) {
+          for (var e of err.details) {
+            if (e === 'conflict_email') {
+              alert('Email already exists.');
+            } else {
+              // handle other errors
+            }
+          }
+        });
+
+    }
+
   }
+
+
+
+
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
