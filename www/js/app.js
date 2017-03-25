@@ -45,8 +45,13 @@ angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'start
         templateUrl: 'templates/tab-login.html',
         controller: 'loginCtrl'
       })
+      .state('income', {
+        url: '/income',
+        templateUrl: 'templates/tab-income.html',
+        controller: 'incomeCtrl'
+      })
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/income');
 
   })
 

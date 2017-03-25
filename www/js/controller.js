@@ -16,15 +16,9 @@ angular.module('starter.controllers', ['ionic.cloud'])
 
 
     $scope.signupUser = function(firstName, lastName, email, password) {
-
-
-
       details.name = firstName + " " + lastName
       details.email = email
       details.password = password
-
-      console.log('log out details')
-      console.log(details)
 
       // check variables and sign up user
       if (details.name && details.email && details.password) {
@@ -43,9 +37,6 @@ angular.module('starter.controllers', ['ionic.cloud'])
       }
 
     }
-
-
-
 
   })
 
@@ -76,10 +67,16 @@ angular.module('starter.controllers', ['ionic.cloud'])
 //
 //
 //   })
-
-  .controller('homeCtrl', function($scope) {
-
+.controller('homeCtrl', function($scope, $ionicAuth, $ionicUser, $state) {
 
 
 
-  });
+
+})
+
+.controller('incomeCtrl', function($scope, $ionicAuth, $ionicUser, $state) {
+
+
+
+
+});
