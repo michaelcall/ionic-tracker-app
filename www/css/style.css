@@ -4,3 +4,34 @@
   justify-content: center;
   align-items: center;
 }
+
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.clockImg {
+  width: 60%;
+}
+
+.mainTittle {
+  font-size: 30px;
+}
+
+.welcomeTittle {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20%;
+  margin-bottom: 10%;
+}
+
+.incomeInputBox {
+  text-align: center;
+  width: 100%;
+  border-bottom: 4px solid black;
+  font-size: 28px;
+}
