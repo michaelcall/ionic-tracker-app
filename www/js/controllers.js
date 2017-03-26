@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic.cloud'])
 
-.controller('DashCtrl', function($scope, $ionicAuth, $ionicUser) {
+.controller('DashCtrl', function($scope, $ionicAuth, $ionicUser, $state) {
 
   $scope.user = {
     firstName: null,
@@ -8,8 +8,14 @@ angular.module('starter.controllers', ['ionic.cloud'])
     email: null,
     password: null
   };
+  
+  $scope.test = {
+    firstName: 'michael'
+  };
 
   var details = {};
+
+  //  cde6fa2c-c509-486e-bf4f-78e78deb8925
 
 
   $scope.signupUser = function(firstName, lastName, email, password) {
@@ -27,18 +33,16 @@ angular.module('starter.controllers', ['ionic.cloud'])
     // check variables and sign up user
     if (details.name && details.email && details.password) {
 
-        $ionicAuth.signup(details).then(function() {
-          // `$ionicUser` is now registered
-          console.log('user is signup to ionic')
-        }, function(err) {
-          for (var e of err.details) {
-            if (e === 'conflict_email') {
-              alert('Email already exists.');
-            } else {
-              // handle other errors
+        $ionicAuth.login('basic', details).then(function() {
+          // `$ionicUser` is now signin
+            console.log('i am sign in')
+            if ($ionicAuth.isAuthenticated()) {
+            // $ionicUser is authenticated!
+            console.log('$ionicUser is authenticated!')
+              $state.go('tab.chats');
             }
-          }
-        });
+
+          });
 
     }
 

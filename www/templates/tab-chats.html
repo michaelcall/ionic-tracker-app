@@ -1,4 +1,12 @@
 <ion-view view-title="Chats">
+
+    <!-- The nav bar that will be updated as we navigate between views. -->
+
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
